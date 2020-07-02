@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,24 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  slideOpts = {
+    initialSlide: 0,
+    speed: 1000,
+    autoplay: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  };
+  constructor(private router: Router) { }
 
+  arr = [1, 2, 3, 4];
+  onClick() {
+    this.router.navigate(['/star']);
+  }
+
+  oncardclicked($event) {
+    this.router.navigate(['/star', $event]);
+    console.log($event);
+  }
 }
